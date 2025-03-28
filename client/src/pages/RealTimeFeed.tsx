@@ -25,7 +25,7 @@ const RealTimeFeed: React.FC = () => {
     refetchInterval: 30000 // Refetch every 30 seconds
   });
   
-  // Update feed when posts data changes
+  // Update feed when posts data changes - simplified for beginners
   useEffect(() => {
     if (!posts || !users) return;
     
@@ -39,16 +39,13 @@ const RealTimeFeed: React.FC = () => {
       user: userMap.get(post.userId)
     }));
     
-    // Sort posts based on selected option
+    // Sort posts based on selected option - keeping this simple
     let sortedPosts = [...postsWithUsers];
     
-    if (sortOption === 'recent') {
-      // Sort newest first (assuming higher IDs are newer)
-      sortedPosts.sort((a, b) => b.id - a.id);
-    }
-    // Add more sorting options as needed
+    // Simple sort by ID
+    sortedPosts.sort((a, b) => b.id - a.id);
     
-    // Generate random images
+    // Generate random images - simplified
     const pImages: {[key: number]: string} = {};
     const uImages: {[key: number]: string} = {};
     
@@ -62,7 +59,7 @@ const RealTimeFeed: React.FC = () => {
     setPostImages(pImages);
     setUserImages(uImages);
     setFeedPosts(sortedPosts);
-  }, [posts, users, sortOption]);
+  }, [posts, users]);
   
   // Function to refresh data
   const handleRefresh = async () => {

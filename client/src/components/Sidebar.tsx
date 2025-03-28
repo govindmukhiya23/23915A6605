@@ -26,31 +26,25 @@ const Sidebar: React.FC<SidebarProps> = ({ currentPath, isOpen, onToggle }) => {
           <div className="px-4 py-2 text-sm text-gray-400 uppercase">Dashboard</div>
           
           {/* Navigation Links */}
-          <Link href="/">
-            <a className={`flex items-center px-4 py-3 rounded-lg ${currentPath === '/' ? 'bg-blue-600 text-white' : 'hover:bg-gray-700'} transition-colors`}>
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
-              </svg>
-              <span>Top Users</span>
-            </a>
+          <Link href="/" className={`flex items-center px-4 py-3 rounded-lg ${currentPath === '/' ? 'bg-blue-600 text-white' : 'hover:bg-gray-700'} transition-colors`}>
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+            </svg>
+            <span>Top Users</span>
           </Link>
           
-          <Link href="/trending">
-            <a className={`flex items-center px-4 py-3 rounded-lg ${currentPath === '/trending' ? 'bg-blue-600 text-white' : 'hover:bg-gray-700'} transition-colors`}>
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
-              </svg>
-              <span>Trending Posts</span>
-            </a>
+          <Link href="/trending" className={`flex items-center px-4 py-3 rounded-lg ${currentPath === '/trending' ? 'bg-blue-600 text-white' : 'hover:bg-gray-700'} transition-colors`}>
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+            </svg>
+            <span>Trending Posts</span>
           </Link>
           
-          <Link href="/feed">
-            <a className={`flex items-center px-4 py-3 rounded-lg ${currentPath === '/feed' ? 'bg-blue-600 text-white' : 'hover:bg-gray-700'} transition-colors`}>
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 5c7.18 0 13 5.82 13 13M6 11a7 7 0 017 7m-6 0a1 1 0 11-2 0 1 1 0 012 0z" />
-              </svg>
-              <span>Real-time Feed</span>
-            </a>
+          <Link href="/feed" className={`flex items-center px-4 py-3 rounded-lg ${currentPath === '/feed' ? 'bg-blue-600 text-white' : 'hover:bg-gray-700'} transition-colors`}>
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 5c7.18 0 13 5.82 13 13M6 11a7 7 0 017 7m-6 0a1 1 0 11-2 0 1 1 0 012 0z" />
+            </svg>
+            <span>Real-time Feed</span>
           </Link>
         </div>
         

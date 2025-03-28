@@ -24,54 +24,34 @@ const TrendingPosts: React.FC = () => {
     queryFn: fetchPosts
   });
   
-  // Calculate total comments and get trending posts
+  // Process and get trending posts - simplified for beginners
   useEffect(() => {
     if (!posts || !users) return;
     
-    const fetchAllComments = async () => {
+    // Simplified approach for beginners
+    const prepareTrendingPosts = () => {
       // Create a map of users by ID for quick lookup
       const userMap = new Map(users.map(user => [user.id, user]));
       
-      // Fetch comments for each post and count them
-      const postsWithCommentCounts = await Promise.all(
-        posts.map(async (post) => {
-          try {
-            const comments = await fetchComments(post.id);
-            // Add user info and comment count to post
-            return {
-              ...post,
-              user: userMap.get(post.userId),
-              commentCount: comments.length
-            };
-          } catch (error) {
-            console.error(`Error fetching comments for post ${post.id}:`, error);
-            return {
-              ...post,
-              user: userMap.get(post.userId),
-              commentCount: 0
-            };
-          }
-        })
-      );
+      // Add user info to posts (comment counts already in our sample data)
+      const postsWithUsers = posts.map(post => ({
+        ...post,
+        user: userMap.get(post.userId)
+      }));
       
       // Sort by comment count (descending)
-      const sortedPosts = [...postsWithCommentCounts].sort((a, b) => 
+      const sortedPosts = [...postsWithUsers].sort((a, b) => 
         (b.commentCount || 0) - (a.commentCount || 0)
       );
       
-      // Find the highest comment count
-      const maxCommentCount = sortedPosts[0]?.commentCount || 0;
-      
-      // Get all posts with the maximum comment count
-      const maxCommentedPosts = sortedPosts.filter(post => 
-        post.commentCount === maxCommentCount
-      );
+      // Get top posts
+      const topPosts = sortedPosts.slice(0, 3);
       
       // Generate random images for posts
       const pImages: {[key: number]: string} = {};
       const uImages: {[key: number]: string} = {};
       
-      maxCommentedPosts.forEach(post => {
+      topPosts.forEach(post => {
         pImages[post.id] = getRandomPostImage();
         if (post.userId) {
           uImages[post.userId] = getRandomProfileImage();
@@ -80,10 +60,10 @@ const TrendingPosts: React.FC = () => {
       
       setPostImages(pImages);
       setUserImages(uImages);
-      setTrendingPosts(maxCommentedPosts);
+      setTrendingPosts(topPosts);
     };
     
-    fetchAllComments();
+    prepareTrendingPosts();
   }, [posts, users]);
   
   // Prepare chart data - comment distribution over time
