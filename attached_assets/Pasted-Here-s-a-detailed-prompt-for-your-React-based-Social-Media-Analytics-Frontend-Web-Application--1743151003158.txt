@@ -1,0 +1,66 @@
+Here's a detailed prompt for your **React-based Social Media Analytics Frontend Web Application**:  
+
+---
+
+### **Prompt:**  
+**Build a Responsive React Frontend Web Application for Social Media Analytics**  
+
+#### **Overview:**  
+Develop a **React.js** web application that provides **real-time analytical insights** using data from a test social media API. The application should be responsive, performant, and efficient in API usage.  
+
+#### **Requirements:**  
+- The application should **run exclusively on `http://localhost:3000`**.  
+- **No user authentication is required**—business stakeholders should access the insights directly.  
+- **Data sources:**  
+  - **Users API**: Fetches all users.  
+  - **Posts API**: Fetches posts by users.  
+  - **Comments API**: Fetches comments on posts.  
+- The API may return **unsorted and large datasets**, so efficient **data structures and algorithms** must be used.  
+- **API calls have a cost**, so minimize calls without compromising real-time updates.  
+
+---
+
+### **Pages & Features:**  
+#### **1️⃣ Top Users Page (🏆)**
+- Displays the **top 5 users** with the highest number of posts.  
+- Efficiently **store and retrieve** post counts for ranking.  
+- Display **usernames and post counts** in a visually appealing way.  
+
+#### **2️⃣ Trending Posts Page (🔥)**
+- Displays the post(s) with the **maximum number of comments**.  
+- If multiple posts have the same highest comment count, display all.  
+- Efficiently maintain and update **top-commented posts** dynamically.  
+
+#### **3️⃣ Real-time Feed Page (📢)**
+- Displays **posts in real-time**, with **newest posts appearing at the top**.  
+- Use **random images** for users and posts.  
+- Handle dynamic updates while **minimizing API calls**.  
+
+---
+
+### **Technical Considerations:**  
+✅ Use **React.js** with **React Router** for navigation.  
+✅ Use **Axios** or **React Query/SWR** for optimized API fetching.  
+✅ Use **Tailwind CSS, Material UI, or Bootstrap** for styling (**ShadCN is prohibited**).  
+✅ Implement **efficient caching & state management** to reduce API calls.  
+✅ Ensure **responsiveness** and a **smooth user experience**.  
+✅ Prepare for **API changes in data structure or sorting order**.  
+
+---
+
+### **Bonus Features (Optional)**  
+🔹 Add **charts/graphs** for visual analytics (e.g., using `recharts` or `Chart.js`).  
+🔹 Use **WebSockets** for real-time updates instead of polling.  
+🔹 Implement **lazy loading** for infinite scrolling in the feed.  
+
+---
+
+### **Deliverables:**  
+✅ A fully functional **React app** that meets all feature requirements.  
+✅ A clean and responsive **UI/UX** for business stakeholders.  
+✅ Efficient **data processing and minimal API call overhead**.  
+✅ Codebase following best practices for performance and maintainability.  
+
+---
+
+Does this prompt capture your requirements? Let me know if you'd like any refinements! 🚀
